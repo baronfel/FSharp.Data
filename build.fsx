@@ -116,7 +116,7 @@ Target "Build" <| fun () ->
  else
     // BoTH flavours of FSharp.Data.DesignTime.dll (net45 and netstandard2.0) must be built _before_ building FSharp.Data
     let build proj = 
-        DotNetCli.RunCommand (fun p -> { p with ToolPath = getSdkPath() }) (sprintf "build -c Release \"%s\" /p:SourceLinkCreate=true /p:SourceLinkServerType=GitHub" proj)
+        DotNetCli.RunCommand (fun p -> { p with ToolPath = getSdkPath() }) (sprintf "build -c Release \"%s\" /p:SourceLinkCreate=true" proj)
     build "src/FSharp.Data.DesignTime/FSharp.Data.DesignTime.fsproj"
     build "src/FSharp.Data/FSharp.Data.fsproj"
 
